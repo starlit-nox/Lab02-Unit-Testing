@@ -13,7 +13,7 @@
         {
             if (amount < 0) // Logic determining if the amount is less than 0, if so, the WriteLine below will be triggered.
             {
-                Console.WriteLine("Invalid amount. Please enter a positive value."); // Prints the text "Invalid amount."
+                Console.WriteLine("Invalid amount."); // Prints the text "Invalid amount."
                 return 0;
             }
 
@@ -31,7 +31,7 @@
         {
             if (amount < 0)
             {
-                Console.WriteLine("Invalid amount. Please enter a positive value."); // Prints the text "Invalid amount."
+                Console.WriteLine("Invalid amount."); // Prints the text "Invalid amount."
                 return 0;
             }
 
