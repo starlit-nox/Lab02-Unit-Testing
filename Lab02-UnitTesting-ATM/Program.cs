@@ -1,8 +1,8 @@
-﻿namespace ATM
+﻿namespace Lab02ATM
 {
-    public class ATM // This is the overall class for the ATM program.
+    public class Program // This is the overall class for the ATM program.
     {
-        public static decimal Balance { get; private set; } = 0; // Setting up the Balanace method in a decimal form.
+        public static decimal Balance { get; set; } = 0; // Setting up the Balance property in a decimal form.
 
         public static decimal ViewBalance()
         {
@@ -11,35 +11,35 @@
 
         public static decimal Withdraw(decimal amount) // Setting up the Withdraw method in a decimal form.
         {
-            if (amount < 0) // Logic determing if the amount is greater than 0, if not then WriteLine below will be triggered.
+            if (amount < 0) // Logic determining if the amount is less than 0, if so, the WriteLine below will be triggered.
             {
-                Console.WriteLine("Invalid amount. Please enter a positive value."); // Prints the text invalid amount.
+                Console.WriteLine("Invalid amount. Please enter a positive value."); // Prints the text "Invalid amount."
                 return 0;
             }
 
             if (amount > Balance)
             {
-                Console.WriteLine("Insufficient funds."); // Prints the text insufficient funds.
+                Console.WriteLine("Insufficient funds."); // Prints the text "Insufficient funds."
                 return 0;
             }
 
             Balance -= amount;
-            return amount;
+            return Balance; // Return the updated balance after withdrawal
         }
 
-        public static decimal Deposit(decimal amount) // Setting up the Depoist method in a decimal form.
+        public static decimal Deposit(decimal amount) // Setting up the Deposit method in a decimal form.
         {
             if (amount < 0)
             {
-                Console.WriteLine("Invalid amount. Please enter a positive value."); // Prints the text invalid amount
+                Console.WriteLine("Invalid amount. Please enter a positive value."); // Prints the text "Invalid amount."
                 return 0;
             }
 
             Balance += amount;
-            return amount;
+            return Balance; // Return the updated balance after deposit
         }
 
-        public static void UserInterface() // This is the UserInterface function, its out putting strings for the text.
+        public static void UserInterface() // This is the UserInterface function, it outputs strings for the text.
         {
             string choice;
             do
@@ -51,7 +51,7 @@
                 Console.Write("Enter your choice: ");
                 choice = Console.ReadLine();
 
-                switch (choice) // This is setting the case choices for the user to switch between.
+                switch (choice) // This sets the case choices for the user to switch between.
                 {
                     case "1":
                         Console.WriteLine($"Current Balance: {ViewBalance():C}");
